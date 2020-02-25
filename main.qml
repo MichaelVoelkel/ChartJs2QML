@@ -12,12 +12,13 @@ Window
 		return Math.random().toFixed(1);
 	}
 
-	Grid {
+	Item {
 		id: grid
 		anchors.fill: parent
-		columns: 2
 
 		Chart {
+
+
 			chartType: 'scatter'
 			chartData: {
 				return {
@@ -80,6 +81,7 @@ Window
 					}]
 				}}
 			chartOptions: {return {
+					maintainAspectRatio: false,
 					responsive: true,
 					hoverMode: 'nearest',
 					intersect: true,
@@ -115,15 +117,25 @@ Window
 				}
 			}
 
-			width: grid.width / 2
-			height: width
+			anchors {
+				left: parent.left
+				top: parent.top
+				right: parent.horizontalCenter
+				bottom: parent.verticalCenter
+			}
 		}
 
 		Chart {
 			id: canvasBars
 			chartType: "bar"
-			width: grid.width / 2
-			height: width
+
+			anchors {
+				left: parent.horizontalCenter
+				top: parent.top
+				right: parent.right
+				bottom: parent.verticalCenter
+			}
+
 			chartData: { return {
 					labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
 					datasets: [{
@@ -170,6 +182,7 @@ Window
 			}
 
 			chartOptions: { return {
+					maintainAspectRatio: false,
 					title: {
 						display: true,
 						text: 'Chart.js Bar Chart - Stacked'
@@ -193,8 +206,13 @@ Window
 
 		Chart {
 			id: canvasPie
-			width: grid.width / 2
-			height: width
+			anchors {
+				left: parent.left
+				top: parent.verticalCenter
+				right: parent.horizontalCenter
+				bottom: parent.bottom
+			}
+
 			chartType: "pie"
 
 			chartData: {return {
@@ -224,12 +242,16 @@ Window
 						]
 					}}
 
-			chartOptions: {return {responsive: true}}
+			chartOptions: {return {maintainAspectRatio: false, responsive: true}}
 		}
 
 		Chart {
-			width: grid.width / 2
-			height: width
+			anchors {
+				left: parent.horizontalCenter
+				top: parent.verticalCenter
+				right: parent.right
+				bottom: parent.bottom
+			}
 			chartType: 'line'
 
 			chartData: { return {
@@ -282,6 +304,7 @@ Window
 			}
 
 			chartOptions: {return {
+					maintainAspectRatio: false,
 					responsive: true,
 					title: {
 						display: true,

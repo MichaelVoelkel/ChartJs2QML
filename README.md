@@ -16,7 +16,7 @@ For using it with QML, we have changed Chart.js at many places that we have poin
 Note that we do not guarantee that this adaptor works. We have not tested all diferent Chart.js charts. We might or might not extend or modify this adaptor. Feel free to provide pull requests if you know how to fix a known bug/flaw.
 
 As of now, there are a few known flaws:
-* resizing does not work reliably, at least in the example provided by us
 * enabling/disabling charts via clicking the legend does not work (although the hidden property is toggled)
+* dashed line in legend for dashed plots switches around between dashed and solid during resize/animation
 
 We hope that this little package might help you with your projects!

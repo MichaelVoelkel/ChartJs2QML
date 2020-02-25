@@ -46,7 +46,6 @@ Canvas {
 
             handler(mouseEvent);
 
-            root.jsChart.draw(1.);
             root.requestPaint();
         }
 
@@ -83,8 +82,6 @@ Canvas {
     }
 
     onChartAnimationProgressChanged: {
-        jsChart.draw(chartAnimationProgress);
-
         root.requestPaint();
     }
 
@@ -98,11 +95,23 @@ Canvas {
                 options: root.chartOptions
                 });
 
-            var setHandler = function(newHandler){event.handler = newHandler;};
-
-            root.jsChart.bindEvents(setHandler);
+            root.jsChart.bindEvents(function(newHandler) {event.handler = newHandler;});
 
             chartAnimator.start();
+        }
+
+        jsChart.draw(chartAnimationProgress);
+    }
+
+    onWidthChanged: {
+        if(jsChart) {
+            jsChart.resize();
+        }
+    }
+
+    onHeightChanged: {
+        if(jsChart) {
+            jsChart.resize();
         }
     }
 }
