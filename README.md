@@ -13,7 +13,7 @@ We directly adapt Chart.js of version 2.9.3 and for using data and options, we r
 
 For using it with QML, we have changed Chart.js at many places that we have pointed out at the top of Chart.js. Note that the idea for modifications are inspired by Shuirna (https://github.com/shuirna) and their changes were inspired by Julien Wintz.
 
-Note that we do not guarantee that this adaptor works. We have not tested all diferent Chart.js charts. We might or might not extend or modify this adaptor. Feel free to provide pull requests if you know how to fix a known bug/flaw.
+Also note that we do not guarantee that this adaptor works. We have not tested all different Chart.js charts. We might or might not extend or modify this adaptor. Feel free to provide pull requests if you would like to improve this adaptor.
 
 As of now, there are a few known flaws:
 * resizing does not work reliably, at least in the example provided by us
