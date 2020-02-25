@@ -5,7 +5,9 @@ You can just import Chart.qml and use it with `chartType`, `chartData` and `char
 
     qmlscene main.qml
     
-assuming that you have `bin` of Qt in your path variable. Otherwise, start `main.qml` in any other way.
+assuming that you have `bin` of Qt in your path variable. Otherwise, start `main.qml` in any other way. The result should look like this:
+
+![Output of main.qml on MacOS](main.png)
 
 We directly adapt Chart.js of version 2.9.3 and for using data and options, we refer to all the examples that can be found there: https://www.chartjs.org
 
