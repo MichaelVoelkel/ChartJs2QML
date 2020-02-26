@@ -103,6 +103,13 @@ Canvas {
         jsChart.draw(chartAnimationProgress);
     }
 
+    function animateToNewData()
+    {
+        chartAnimationProgress = 0.1;
+        jsChart.update();
+        chartAnimator.restart();
+    }
+
     onWidthChanged: {
         if(jsChart) {
             jsChart.resize();

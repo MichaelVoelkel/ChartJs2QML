@@ -4669,20 +4669,18 @@ var element_rectangle = core_element.extend({
 		var outer = rects.outer;
 		var inner = rects.inner;
 
-		ctx.fillStyle = vm.backgroundColor;
-		ctx.fillRect(outer.x, outer.y, outer.w, outer.h);
+		ctx.save();
 
-		if (outer.w === inner.w && outer.h === inner.h) {
-			return;
+		if (outer.w !== inner.w || outer.h !== inner.h) {
+			ctx.beginPath();
+			ctx.strokeStyle = vm.borderColor;
+			ctx.strokeRect(inner.x, inner.y, inner.w, inner.h);
+			ctx.fill('evenodd');
 		}
 
-		ctx.save();
-		ctx.beginPath();
-		ctx.rect(outer.x, outer.y, outer.w, outer.h);
-		ctx.clip();
-		ctx.fillStyle = vm.borderColor;
-		ctx.rect(inner.x, inner.y, inner.w, inner.h);
-		ctx.fill('evenodd');
+		ctx.fillStyle = vm.backgroundColor;
+		ctx.fillRect(inner.x, inner.y, inner.w, inner.h);
+
 		ctx.restore();
 	},
 

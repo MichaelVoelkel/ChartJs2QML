@@ -1,3 +1,9 @@
+/*!
+ * Elypson's Chart.qml adaptor to Chart.js
+ * (c) 2020 ChartJs2QML contributors (starting with Elypson, Michael A. Voelkel, https://github.com/Elypson)
+ * Released under the MIT License
+ */
+
 import QtQuick 2.0
 import QtQuick.Window 2.0
 import "Chart.bundle.js" as Chart
@@ -17,8 +23,6 @@ Window
 		anchors.fill: parent
 
 		Chart {
-
-
 			chartType: 'scatter'
 			chartData: {
 				return {
