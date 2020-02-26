@@ -27,3 +27,5 @@ As of now, there are a few known flaws:
 * dashed line in legend for dashed plots switches around between dashed and solid during resize/animation
 
 We hope that this little package might help you with your projects!
+
+All the best, Michael
