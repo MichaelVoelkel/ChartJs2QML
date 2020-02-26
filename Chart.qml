@@ -14,12 +14,23 @@ Canvas {
     property string chartType
     property var chartData
     property var chartOptions
+    property double chartAnimationProgress: 0.1
+    property var animationEasingType: Easing.InOutExpo
+    property double animationDuration: 500
+
+    function animateToNewData()
+    {
+        chartAnimationProgress = 0.1;
+        jsChart.update();
+        chartAnimator.restart();
+    }
 
     MouseArea {
         id: event
         anchors.fill: root
         hoverEnabled: true
         enabled: true
+        property var handler: undefined
 
         property QtObject mouseEvent: QtObject {
             property int left: 0
@@ -31,8 +42,6 @@ Canvas {
             property string type: ""
             property var target
         }
-
-        property var handler: undefined;
 
         function submitEvent(mouse, type) {
             mouseEvent.type = type
@@ -69,16 +78,14 @@ Canvas {
         }
     }
 
-    property double chartAnimationProgress: 0.1
-
     PropertyAnimation {
         id: chartAnimator
         target: root
         property: "chartAnimationProgress"
         alwaysRunToEnd: true
         to: 1
-        duration: 750
-        easing.type: Easing.InOutExpo
+        duration: root.animationDuration
+        easing.type: root.animationEasingType
     }
 
     onChartAnimationProgressChanged: {
@@ -101,13 +108,6 @@ Canvas {
         }
 
         jsChart.draw(chartAnimationProgress);
-    }
-
-    function animateToNewData()
-    {
-        chartAnimationProgress = 0.1;
-        jsChart.update();
-        chartAnimator.restart();
     }
 
     onWidthChanged: {
