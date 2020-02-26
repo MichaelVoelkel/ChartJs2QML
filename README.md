@@ -13,7 +13,7 @@ assuming that you have `bin` of Qt in your path variable. Otherwise, start `main
 
 ## Animation of changes
 
-We have added the possibility to change data and animate to changed data. The file `animationExample.qml` can be started to see how it works. Just update the corresponding `chartData` property of `Chart` and then call its function `animateToNewData`. Graphs are not rebuilt but rather data is just updated within Chart.js, which is convenient in terms of resource-usage and performance.
+We have added the possibility to change data and animate to changed data. The file `animationExample.qml` can be started to see how it works. Just update the corresponding `chartData` property of `Chart` and then call its function `animateToNewData`. Graphs are not rebuilt but rather data is just updated within Chart.js, which is convenient in terms of resource-usage and performance. You can also define via QML the easing type and duration of the animation.
 
 ## Notes
 
