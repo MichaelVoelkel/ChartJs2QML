@@ -1,5 +1,5 @@
 # ChartJs2QML
-This is a QML adaptor for Chart.js 2.9.3 that supports startup animations and tooltips.
+This is a QML adaptor for Chart.js 2.9.3 that supports startup animations and tooltips. This way you can integrate charts conveniently (also for commercial products thanks to MIT-license) with your QML-based projects. This also works fine when using Qt with C++ with the desire to display some charts. Feel free to ask questions under issues, if you need help with that.
 
 ## Getting started
 
