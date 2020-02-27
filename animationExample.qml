@@ -6,7 +6,7 @@
 
  import QtQuick 2.0
  import QtQuick.Window 2.0
- import "Chart.bundle.js" as Chart
+ import "Chart.js" as Chart
 
  Window {
      id: myWindow
