@@ -5,7 +5,7 @@
  */
 
 import QtQuick 2.0
-import "Chart.bundle.js" as Chart
+import "Chart.js" as Chart
 
 Canvas {
     id: root
