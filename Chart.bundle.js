@@ -4405,6 +4405,11 @@ var element_line = core_element.extend({
 			ctx.setLineDash(vm.borderDash || globalOptionLineElements.borderDash);
 		}
 
+		// line dash fix for QML
+		if(ctx.getLineDash && ctx.getLineDash().length === 0) {
+			ctx.setLineDash([99999]);
+		}
+
 		ctx.lineDashOffset = valueOrDefault$1(vm.borderDashOffset, globalOptionLineElements.borderDashOffset);
 		ctx.lineJoin = vm.borderJoinStyle || globalOptionLineElements.borderJoinStyle;
 		ctx.lineWidth = valueOrDefault$1(vm.borderWidth, globalOptionLineElements.borderWidth);
@@ -13638,6 +13643,11 @@ function drawRadiusLine(scale, gridLineOpts, radius, index) {
 		ctx.lineDashOffset = gridLineOpts.borderDashOffset || 0.0;
 	}
 
+	// line dash fix for QML
+	if(ctx.getLineDash && ctx.getLineDash().length === 0) {
+		ctx.setLineDash([99999]);
+	}
+
 	ctx.beginPath();
 	if (circular) {
 		// Draw circular arcs between the points
@@ -13853,6 +13863,11 @@ var scale_radialLinear = scale_linearbase.extend({
 			if (ctx.setLineDash) {
 				ctx.setLineDash(resolve$4([angleLineOpts.borderDash, gridLineOpts.borderDash, []]));
 				ctx.lineDashOffset = resolve$4([angleLineOpts.borderDashOffset, gridLineOpts.borderDashOffset, 0.0]);
+			}
+
+			// line dash fix for QML
+			if(ctx.getLineDash && ctx.getLineDash().length === 0) {
+				ctx.setLineDash([99999]);
 			}
 
 			for (i = me.chart.data.labels.length - 1; i >= 0; i--) {
@@ -20120,6 +20135,10 @@ var Legend = core_element.extend({
 			if (ctx.setLineDash) {
 				// IE 9 and 10 do not support line dash
 				ctx.setLineDash(valueOrDefault$e(legendItem.lineDash, lineDefault.borderDash));
+			}
+
+			if(ctx.getLineDash && ctx.getLineDash().length === 0) {
+				ctx.setLineDash([99999]); // fix for QML because it does not make lines solid once being unsolid once
 			}
 
 			if (labelOpts && labelOpts.usePointStyle) {

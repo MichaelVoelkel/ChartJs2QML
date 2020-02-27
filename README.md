@@ -23,9 +23,6 @@ For using it with QML, we have changed Chart.js at many places that we have poin
 
 Also note that we do not guarantee that this adaptor works. We have not tested all different Chart.js charts. We might or might not extend or modify this adaptor. Feel free to provide pull requests if you would like to improve this adaptor.
 
-As of now, there are a few known flaws:
-* dashed line in legend for dashed plots switches around between dashed and solid during resize/animation
-
 We hope that this little package might help you with your projects!
 
 All the best, Michael
