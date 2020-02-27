@@ -53,7 +53,9 @@ Canvas {
             mouseEvent.top = 0;
             mouseEvent.target = root;
 
-            handler(mouseEvent);
+            if(handler) {
+                handler(mouseEvent);
+            }
 
             root.requestPaint();
         }
