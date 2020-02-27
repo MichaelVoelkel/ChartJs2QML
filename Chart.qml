@@ -4,7 +4,7 @@
  * Released under the MIT License
  */
 
-import QtQuick 2.0
+import QtQuick 2.7
 import "Chart.js" as Chart
 
 Canvas {
