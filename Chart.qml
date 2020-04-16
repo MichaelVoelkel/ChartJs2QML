@@ -4,7 +4,7 @@
  * Released under the MIT License
  */
 
-import QtQuick 2.7
+import QtQuick 2.13
 import "Chart.js" as Chart
 
 Canvas {
@@ -17,6 +17,9 @@ Canvas {
     property double chartAnimationProgress: 0.1
     property var animationEasingType: Easing.InOutExpo
     property double animationDuration: 500
+    property var memorizedContext
+    property var memorizedData
+    property var memorizedOptions
 
     function animateToNewData()
     {
@@ -95,7 +98,7 @@ Canvas {
     }
 
     onPaint: {
-        if(jsChart === undefined) {
+        if(root.getContext('2d') != null && memorizedContext != root.getContext('2d') || memorizedData != root.chartData || memorizedOptions != root.chartOptions) {
             var ctx = root.getContext('2d');
 
             jsChart = new Chart.build(ctx, {
@@ -103,6 +106,10 @@ Canvas {
                 data: root.chartData,
                 options: root.chartOptions
                 });
+
+            memorizedData = root.chartData ;
+            memorizedContext = root.getContext('2d');
+            memorizedOptions = root.chartOptions;
 
             root.jsChart.bindEvents(function(newHandler) {event.handler = newHandler;});
 
