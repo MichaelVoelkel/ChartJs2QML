@@ -6163,9 +6163,9 @@ var controller_line = core_datasetController.extend({
 		};
 
 		model.backgroundColor = valueOrDefault$6(options.hoverBackgroundColor, getHoverColor(options.backgroundColor));
-		model.borderColor = "rgba(255,0,0,1.)";//valueOrDefault$6(options.hoverBorderColor, getHoverColor(options.borderColor));
-		model.borderWidth = 1;//valueOrDefault$6(options.hoverBorderWidth, options.borderWidth);
-		model.radius = 2;//valueOrDefault$6(options.hoverRadius, options.radius);
+		model.borderColor = valueOrDefault$6(options.hoverBorderColor, getHoverColor(options.borderColor));
+		model.borderWidth = valueOrDefault$6(options.hoverBorderWidth, options.borderWidth);
+		model.radius = valueOrDefault$6(options.hoverRadius, options.radius);
 	},
 });
 
