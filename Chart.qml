@@ -20,6 +20,9 @@ Canvas {
     property var memorizedContext
     property var memorizedData
     property var memorizedOptions
+    property alias animationRunning: chartAnimator.running
+    
+    signal animationFinished()
 
     function animateToNewData()
     {
@@ -91,6 +94,9 @@ Canvas {
         to: 1
         duration: root.animationDuration
         easing.type: root.animationEasingType
+        onFinished: {
+            root.animationFinished();
+        }
     }
 
     onChartAnimationProgressChanged: {
